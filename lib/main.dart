@@ -1,3 +1,5 @@
+import 'package:actual/common/component/custom_text_form_field.dart';
+import 'package:actual/user/view/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +14,11 @@ class _App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Container(),
+      theme: ThemeData(
+        fontFamily: 'NotoSans',
       ),
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }

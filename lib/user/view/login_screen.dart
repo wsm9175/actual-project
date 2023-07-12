@@ -22,8 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final dio = Dio();
-    const serverIp = '172.30.1.2:3000';
-
 
     return DefaultLayout(
       child: SingleChildScrollView(
@@ -46,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: MediaQuery.of(context).size.width / 3 * 2,
                 ),
                 CustomTextFormField(
+                  initValue: 'test@codefactory.ai',
                   hintText: '이메일을 입력해주세요',
                   onChanged: (String value) {
                     username = value;
@@ -55,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 16.0,
                 ),
                 CustomTextFormField(
+                  initValue: 'testtest',
                   hintText: '비밀번호를 입력해주세요',
                   onChanged: (String value) {
                     password = value;
@@ -100,16 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                   onPressed: () async {
-                    const token =
-                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAY29kZWZhY3RvcnkuYWkiLCJzdWIiOiJmNTViMzJkMi00ZDY4LTRjMWUtYTNjYS1kYTlkN2QwZDkyZTUiLCJ0eXBlIjoicmVmcmVzaCIsImlhdCI6MTY4OTA4NTM3NSwiZXhwIjoxNjg5MTcxNzc1fQ.ZiWtzkgVLXr9pruIoV2NGb84gTF43rwXDt9rko39hb4';
-                    final resp = await dio.post(
-                      'http://$serverIp/auth/token',
-                      options: Options(headers: {
-                        'authorization': 'Bearer $token',
-                      }),
-                    );
 
-                    print(resp.data);
                   },
                   child: Text('회원가입'),
                   style: TextButton.styleFrom(

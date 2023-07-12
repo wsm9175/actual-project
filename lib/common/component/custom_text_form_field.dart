@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final bool autofocus;
   final ValueChanged<String>? onChanged;
+  final String? initValue;
 
   const CustomTextFormField({
     required this.onChanged,
@@ -14,6 +15,7 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.hintText,
     this.errorText,
+    this.initValue,
     Key? key,
   }) : super(key: key);
 
@@ -27,6 +29,7 @@ class CustomTextFormField extends StatelessWidget {
     );
 
     return TextFormField(
+      initialValue: initValue,
       cursorColor: PRIMARY_COLOR,
       // 비밀번호 입력할 때
       obscureText: obscureText,
